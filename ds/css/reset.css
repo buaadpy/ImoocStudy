@@ -1,0 +1,35 @@
+/*去掉边界与修改默认字体*/
+body, div, dl, dt, ul, li, h1, h2, h3, h4, h5, h6, input, form, a, p, textarea {
+    margin: 0;
+    padding:0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/*去掉列表前面的小点*/
+ul, ol, li {
+    list-style: none;
+}
+/*去掉超链接下划线*/
+a {
+    text-decoration: none;
+    color:#656565;
+}
+/*去掉图片边框*/
+img {
+    border: none;
+    display: block;
+}
+/*清除浮动*/
+.clearfloat {
+    zoom:1;
+}
+.clearfloat:after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+input {
+    border:none;
+}

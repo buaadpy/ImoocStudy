@@ -1,0 +1,91 @@
+.topBar {
+    height: 32px;
+    width: 100%;
+    background-color:#F7F7F7;
+    line-height: 32px;
+}
+
+.topBar .collection{
+    background:url("../images/icons/collection.png") left center no-repeat;
+    padding-left: 19px;
+    font-weight:bold;
+}
+
+.topBar a:hover{
+    color:red;
+}
+
+.middleBar {
+    height: 85px;
+    width: 100%;
+    background-color: #1D7AD9;
+}
+
+.middleBar .logo{
+    padding-left:41px;
+    padding-top:13px;
+    float: left;
+}
+
+.middleBar .searchBox{
+    width:430px;
+    float:left;
+    padding-top:24px;
+    padding-left:186px;
+}
+
+.middleBar .searchText{
+    width:350px;
+    height:36px;
+    float:left;
+    padding:0 5px;
+}
+
+.middleBar .searchBtn{
+    width:70px;
+    height:36px;
+    font-size:14px;
+    background-color: #FF8C00;
+    color:white;
+    float:right;
+}
+
+.middleBar .shoppingCart{
+    width:146px;
+    height:36px;
+    background-color: #FF8C00;
+    margin-top:24px;
+    float:right;
+    margin-right:60px;
+}
+
+.middleBar .shopText{
+    font-size:14px;
+    color:white;
+    height:100%;
+    width:87px;
+    border-right:#E27A00 solid 1px;
+    float:left;
+    line-height:36px;
+    background:url("../images/icons/shopIcon.png") 10px center no-repeat;
+    text-indent:40px;
+}
+
+.middleBar .shopNum{
+    width:26px;
+    height:100%;
+    line-height:36px;
+    color:white;
+    border-left:#FF9C01 solid 1px;
+    float:left;
+    background:url("../images/icons/sj.png") 34px center no-repeat;
+    text-align: right;
+    padding-right:30px;
+}
+
+.nav{
+    height:40px;
+    width:100%;
+    background-color: blue;
+}
+
