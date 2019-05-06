@@ -1,18 +1,18 @@
 .topBar {
     height: 32px;
     width: 100%;
-    background-color:#F7F7F7;
+    background-color: #F7F7F7;
     line-height: 32px;
 }
 
-.topBar .collection{
-    background:url("../images/icons/collection.png") left center no-repeat;
+.topBar .collection {
+    background: url("../images/icons/collection.png") left center no-repeat;
     padding-left: 19px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-.topBar a:hover{
-    color:red;
+.topBar a:hover {
+    color: red;
 }
 
 .middleBar {
@@ -21,71 +21,151 @@
     background-color: #1D7AD9;
 }
 
-.middleBar .logo{
-    padding-left:41px;
-    padding-top:13px;
+.middleBar .logo {
+    padding-left: 41px;
+    padding-top: 13px;
     float: left;
 }
 
-.middleBar .searchBox{
-    width:430px;
-    float:left;
-    padding-top:24px;
-    padding-left:186px;
+.middleBar .searchBox {
+    width: 430px;
+    float: left;
+    padding-top: 24px;
+    padding-left: 186px;
 }
 
-.middleBar .searchText{
-    width:350px;
-    height:36px;
-    float:left;
-    padding:0 5px;
+.middleBar .searchText {
+    width: 350px;
+    height: 36px;
+    float: left;
+    padding: 0 5px;
 }
 
-.middleBar .searchBtn{
-    width:70px;
-    height:36px;
-    font-size:14px;
+.middleBar .searchBtn {
+    width: 70px;
+    height: 36px;
+    font-size: 14px;
     background-color: #FF8C00;
-    color:white;
-    float:right;
+    color: white;
+    float: right;
 }
 
-.middleBar .shoppingCart{
-    width:146px;
-    height:36px;
+.middleBar .shoppingCart {
+    width: 146px;
+    height: 36px;
     background-color: #FF8C00;
-    margin-top:24px;
-    float:right;
-    margin-right:60px;
+    margin-top: 24px;
+    float: right;
+    margin-right: 60px;
 }
 
-.middleBar .shopText{
-    font-size:14px;
-    color:white;
-    height:100%;
-    width:87px;
-    border-right:#E27A00 solid 1px;
-    float:left;
-    line-height:36px;
-    background:url("../images/icons/shopIcon.png") 10px center no-repeat;
-    text-indent:40px;
+.middleBar .shopText {
+    font-size: 14px;
+    color: white;
+    height: 100%;
+    width: 87px;
+    border-right: #E27A00 solid 1px;
+    float: left;
+    line-height: 36px;
+    background: url("../images/icons/shopIcon.png") 10px center no-repeat;
+    text-indent: 40px;
 }
 
-.middleBar .shopNum{
-    width:26px;
-    height:100%;
-    line-height:36px;
-    color:white;
-    border-left:#FF9C01 solid 1px;
-    float:left;
-    background:url("../images/icons/sj.png") 34px center no-repeat;
+.middleBar .shopNum {
+    width: 26px;
+    height: 100%;
+    line-height: 36px;
+    color: white;
+    border-left: #FF9C01 solid 1px;
+    float: left;
+    background: url("../images/icons/sj.png") 34px center no-repeat;
     text-align: right;
-    padding-right:30px;
+    padding-right: 30px;
 }
 
-.nav{
-    height:40px;
+.navBar {
+    height: 36px;
+    width: 100%;
+    background-color: #1369C0;
+    color: white;
+}
+
+.navBar .shopClass {
+    width: 190px;
+    float: left;
+    position:relative;
+}
+
+.navBar .shopClass h3 {
+    background: url("../images/icons/down.png") 160px center no-repeat;
+    line-height: 36px;
+    text-align: center;
+}
+
+.navBar .shopClass .shopClass-show {
+    background-color: #4593FD;
+    position:absolute;
+    left:0px;
+    top:36px;
     width:100%;
-    background-color: blue;
 }
 
+.navBar .shopClass .shopClass-item {
+    padding: 14px 10px;
+    border-bottom:#3487F2 solid 1px;
+    border-top:#5AA1FE solid 1px;
+}
+
+.navBar .shopClass .shopClass-item dt {
+    height: 22px;
+    background:url("../images/icons/shop_sj.png") right center no-repeat;
+}
+
+.navBar .shopClass .shopClass-item .aLink {
+    width:48px;
+    height:20px;
+    background: url("../images/icons/aLink.png") left center no-repeat;
+    display: inline-block;
+    text-align:center;
+    line-height:20px;
+    text-decoration:underline;
+}
+
+.navBar .shopClass .shopClass-item a {
+    color: white;
+}
+
+.navBar .shopClass .shopClass-item .b {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.navBar .shopClass .shopClass-list {
+    width:568px;
+    height:378px;
+    border:white solid 1px;
+    position:absolute;
+    top:36px;
+    left:190px;
+    background-color: #FFFFCC;
+}
+
+.navBar .nav {
+    float: left;
+    line-height: 36px;
+}
+
+.navBar .nav li {
+    float: left;
+}
+
+.navBar .nav a {
+    padding: 0 36px;
+    height: 36px;
+    display: inline-block;
+    color: white;
+}
+
+.navBar .nav .active {
+    background-color: #4593FD;
+}
