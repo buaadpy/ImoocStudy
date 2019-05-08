@@ -93,7 +93,7 @@
 .navBar .shopClass {
     width: 190px;
     float: left;
-    position:relative;
+    position: relative;
 }
 
 .navBar .shopClass h3 {
@@ -104,35 +104,39 @@
 
 .navBar .shopClass .shopClass-show {
     background-color: #4593FD;
-    position:absolute;
-    left:0px;
-    top:36px;
-    width:100%;
+    position: absolute;
+    left: 0px;
+    top: 36px;
+    width: 100%;
 }
 
 .navBar .shopClass .shopClass-item {
     padding: 14px 10px;
-    border-bottom:#3487F2 solid 1px;
-    border-top:#5AA1FE solid 1px;
+    border-bottom: #3487F2 solid 1px;
+    border-top: #5AA1FE solid 1px;
 }
 
 .navBar .shopClass .shopClass-item dt {
     height: 22px;
-    background:url("../images/icons/shop_sj.png") right center no-repeat;
+    background: url("../images/icons/shop_sj.png") right center no-repeat;
 }
 
 .navBar .shopClass .shopClass-item .aLink {
-    width:48px;
-    height:20px;
+    width: 48px;
+    height: 20px;
     background: url("../images/icons/aLink.png") left center no-repeat;
     display: inline-block;
-    text-align:center;
-    line-height:20px;
-    text-decoration:underline;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: underline;
 }
 
 .navBar .shopClass .shopClass-item a {
-    color: white;
+    color: #FFFFFF;
+}
+
+.navBar .shopClass .shopClass-item a:hover {
+    text-decoration: underline;
 }
 
 .navBar .shopClass .shopClass-item .b {
@@ -140,14 +144,79 @@
     font-size: 14px;
 }
 
+.navBar .shopClass .shopClass-item-active {
+    background-color: #FFFFFF;
+    border-left: #4593FD solid 1px;
+}
+
+.navBar .shopClass .shopClass-item-active a {
+    color: #000000;
+}
+
+.navBar .shopClass .shopClass-item-active .aLink {
+    color: white;
+    text-decoration: none;
+}
+
+.navBar .shopClass .shopClass-item-active dt {
+    background: none;
+}
+
 .navBar .shopClass .shopClass-list {
-    width:568px;
-    height:378px;
-    border:white solid 1px;
-    position:absolute;
-    top:36px;
-    left:190px;
-    background-color: #FFFFCC;
+    width: 568px;
+    border: #CCC solid 1px;
+    position: absolute;
+    top: 36px;
+    left: 190px;
+}
+
+.navBar .shopClass .shopClass-list .listCenter {
+    padding: 0 20px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-list-item {
+    padding: 10px 0px;
+    border-bottom: #CCC solid 1px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-links {
+    padding: 15px 0px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-links a {
+    color: #FFFFFF;
+    background-color: #2785E6;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    display: inline-block;
+    padding: 0 14px 0 8px;
+    margin-right: 10px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-links span {
+    background: url("../images/icons/shop_sj.png") right center no-repeat;
+    width: 12px;
+    height: 8px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-list-item dt {
+    color: #4B87D9;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-list-item dd {
+    padding-left: 68px;
+    margin-top: -24px;
+    line-height: 24px;
+}
+
+.navBar .shopClass .shopClass-list .shopClass-list-item a {
+    margin-right: 12px;
 }
 
 .navBar .nav {
@@ -168,4 +237,57 @@
 
 .navBar .nav .active {
     background-color: #4593FD;
+}
+
+.banner .bannerBar {
+    width: 810px;
+    height: 326px;
+    float: right;
+}
+
+.banner .bannerBar {
+    width: 810px;
+    height: 326px;
+    float: right;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner .bannerBar .imgBox {
+    width: 1620px;
+    height: 326px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.banner .bannerBar li {
+    float: left;
+}
+
+.banner .bannerBar img {
+    width: 810px;
+    height: 326px;
+    display: block;
+}
+
+.banner .bannerBar .imgNum {
+    position: absolute;
+    left: 0;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.banner .bannerBar .imgNum a {
+    width: 20px;
+    height: 5px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #FFF;
+    margin: 0px 3px;
+}
+
+.banner .bannerBar .imgNum .active {
+    background-color: #FF7700;
 }
