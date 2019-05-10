@@ -17,7 +17,6 @@ a {
 /*去掉图片边框*/
 img {
     border: none;
-    display: block;
 }
 /*清除浮动*/
 .clearfloat {
