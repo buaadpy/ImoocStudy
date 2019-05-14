@@ -3,7 +3,7 @@ body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, input, form, a, p, textar
     margin: 0;
     padding:0;
     font-family: "Microsoft YaHei UI", "微软雅黑";
-    font-size:14px;
+    font-size:12px;
 }
 /*去掉列表前面的小点*/
 ul, ol, li {

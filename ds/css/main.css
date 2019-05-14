@@ -455,3 +455,114 @@
 .footer .footer-logo img{
     margin:0 12px;
 }
+
+/*产品页面*/
+.product .bannerBar{
+    float:none;
+}
+
+.product .leftArea{
+    width:185px;
+
+}
+
+.product .rightArea{
+    width:810px;
+
+}
+
+.product .leftArea .sideBar{
+    background-color:#F3F3F3;
+    border:#D7D7D7 solid 1px;
+}
+
+.product .leftArea .title{
+    height:34px;
+    line-height: 34px;
+    font-size:14px;
+    border-bottom:#D7D7D7 solid 1px;
+    text-align:center;
+}
+
+.product .leftArea .productItem{
+    padding:0px 18px 4px 18px;
+    border-bottom:#D7D7D7 dotted 1px;
+    margin-bottom: -1px;
+}
+
+.product .leftArea .productItem h3{
+    font-size:12px;
+    height:30px;
+    line-height:30px;
+}
+
+.product .leftArea .productItem .product-list{
+    line-height: 25px;
+}
+
+.product .leftArea .productItem .product-list li{
+    float:left;
+    width:50%;
+}
+
+.product .leftArea .productItem .product-list a{
+    font-size:12px;
+}
+
+.product .rightArea .product-title{
+    height:34px;
+    line-height:34px;
+    border-bottom:#CCCCCC solid 2px;
+}
+
+.product .rightArea .product-title h3{
+    width:171px;
+    border-bottom:#096DBA solid 2px;
+    margin-bottom:-2px;
+    padding-left:9px;
+}
+
+.product .rightArea .product-list{
+
+}
+
+.product .rightArea .product-list .item{
+    width:25%;
+    float:left;
+    margin-bottom:10px;
+}
+
+.product .rightArea .product-list .item .item-content{
+    padding:0 15px;
+}
+
+.product .rightArea .product-list .item p{
+    line-height: 20px;
+}
+
+.product .rightArea .product-list .item p a{
+    color:black;
+}
+
+.product .rightArea .product-list .item p a:hover{
+    text-decoration:underline;
+}
+
+.product .rightArea .product-list .item .img-item{
+    height:170px;
+    text-align: center;
+}
+
+.product .rightArea .product-list .item .price{
+    color:#D415A0;
+    font-weight:bold;
+    padding-top:10px;
+}
+
+.product .rightArea .product-list .item .star{
+    display: inline-block;
+    height:13px;
+    width:13px;
+    background: url("../images/icons/star.png") center center no-repeat;
+    margin-right:1px;
+}
