@@ -522,10 +522,6 @@
     padding-left:9px;
 }
 
-.product .rightArea .product-list{
-
-}
-
 .product .rightArea .product-list .item{
     width:25%;
     float:left;
@@ -565,4 +561,82 @@
     width:13px;
     background: url("../images/icons/star.png") center center no-repeat;
     margin-right:1px;
+}
+
+.header .welcome-title{
+    line-height:85px;
+    color:#FFFFFF;
+    font-size:18px;
+    position:relative;
+    left:40px;
+}
+
+.regBox{
+    width:308px;
+    height:344px;
+    border:#999999 solid 1px;
+    margin:20px auto;
+    padding:15px 76px;
+    position:relative;
+}
+
+.regBox .l-tit{
+    color:#666666;
+    line-height:20px;
+}
+
+.regBox .login-input{
+    border:#999 solid 1px;
+    height:32px;
+    line-height:32px;
+    text-indent:5px;
+    width:100%;
+    background: url("../images/icons/user.jpg") 95% center no-repeat;
+    margin-bottom:10px;
+}
+
+.regBox .autoLogin{
+    padding-top:27px;
+    padding-bottom:28px;
+}
+
+.regBox .checked{
+    position:relative;
+    top:3px;
+    margin-right:3px;
+}
+
+.regBox .login-btn{
+    width:309px;
+    height:36px;
+    background:url("../images/button.jpg") center center;
+}
+
+.regBox .friend{
+    padding-top:34px;
+    color:#666666;
+    line-height:20px;
+}
+
+.regBox .friend li{
+    float:left;
+    line-height:20px;
+}
+
+.regBox .friend span{
+    margin:0 3px;
+    color:#999;
+}
+
+.regBox .reg-link{
+    display:inline-block;
+    height:35px;
+    width:120px;
+    background-color: #33CC33;
+    text-align:center;
+    line-height:35px;
+    color:#FFFFFF;
+    position:absolute;
+    right:40px;
+    bottom:-36px;
 }
