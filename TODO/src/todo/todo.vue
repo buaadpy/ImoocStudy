@@ -7,43 +7,71 @@
       placeholder="接下去要做什么？"
       @keyup.enter="addTodo"
     >
-    <Item :todo="todo"></Item>
-    <tabs :filter="filter"></tabs>
+    <Item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @del="deleteTodo"></Item>
+    <tabs :filter="filter" :count="count" @clear="clearAllCompleted" @toggle="toggleFilter"></tabs>
   </section>
 </template>
 
 <script>
-import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Item from "./item.vue";
+import Tabs from "./tabs.vue";
+let id = 0;
 export default {
-    data() {
-        return {
-            todo:{
-                id:0,
-                content: '去家乐福买菜',
-                completed:false,
-            },
-            filter:'all'
-        }
+  data() {
+    return {
+      todos: [],
+      filter: "all"
+    };
+  },
+  components: {
+    Item,
+    Tabs
+  },
+  methods: {
+    addTodo(e) {
+      this.todos.unshift({
+        id: id++,
+        content: e.target.value.trim(),
+        completed: false
+      });
+      e.target.value = "";
     },
-    components: {
-        Item,Tabs,
+    deleteTodo(id) {
+      this.todos.splice(this.todos.indexOf(id), 1);
     },
-    methods:{
-        addTodo(){
-
-        }
+    clearAllCompleted() {
+      this.todos = this.todos.filter(todo => !todo.completed);
+    },
+    toggleFilter(state) {
+      this.filter = state;
     }
+  },
+  computed: {
+    count() {
+      return this.todos.filter(todo => todo.completed == false).length;
+    },
+    filteredTodos() {
+      switch (this.filter) {
+        case "all":
+          return this.todos;
+        case "active":
+          return this.todos.filter(todo => !todo.completed);
+        case "completed":
+          return this.todos.filter(todo => todo.completed);
+      }
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-.real-app{
-  width 600px
-  margin 0 auto
-  box-shadow 0 0 5px #666
+.real-app {
+  width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 5px #666;
 }
-.add-input{
+
+.add-input {
   position: relative;
   margin: 0;
   width: 100%;
@@ -61,6 +89,6 @@ export default {
   font-smoothing: antialiased;
   padding: 16px 16px 16px 60px;
   border: none;
-  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
 </style>

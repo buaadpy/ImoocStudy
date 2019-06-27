@@ -1,6 +1,6 @@
 <template>
   <div class="helper">
-    <span class="left">2 items left</span>
+    <span class="left">{{count}} items left</span>
     <span class="tabs">
       <span v-for="state in states" :key="state" :class="[state, filter === state ? 'actived' : '']" @click="toggleFilter(state)">{{state}}</span>
     </span>
@@ -11,6 +11,10 @@
 <script>
 export default {
     props:{
+        count:{
+          type:Number,
+          required:true,
+        },
         filter:{
             type:String,
             required:true,
@@ -22,8 +26,12 @@ export default {
     };
   },
   methods: {
-      clearAllCompleted(){},
-      toggleFilter(){}
+      clearAllCompleted(){
+        this.$emit('clear');
+      },
+      toggleFilter(state){
+        this.$emit('toggle',state)
+      }
   }
 };
 </script>
