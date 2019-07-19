@@ -15,12 +15,13 @@ export default {
 
 <style>
 #author {
+  margin-top:50px;
   width: 100%;
   height: 50px;
 
   line-height:50px;
   text-align: center;
-  color: #cccccc;
+  color: #888888;
   font-size: 16px;
 }
 </style>

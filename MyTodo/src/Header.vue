@@ -15,11 +15,11 @@ export default {
 <style scoped>
 h1 {
     width:100%;
-    height:200px;
+    height:180px;
 
-    line-height:200px;
+    line-height:180px;
     text-align:center;
     font-size:50px;
-    color:#555555;
+    color:#dddddd;
 } 
 </style>

@@ -37,15 +37,15 @@ const store = new Vuex.Store({
       this.commit('write');
     },
     read(state){
+      if (state.todoList.length != 0) return;
       let xhr = new XMLHttpRequest();
       xhr.open("GET", "http://localhost:8001", true);
       xhr.send();
-      let todo = state.todoList;
       xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
           let res = xhr.responseText.split("\n");
           res.map(text =>
-            todo.push({
+            state.todoList.push({
               itemText: text.split(",")[0],
               itemId: state.iCount++,
               completed: +text.split(",")[1]

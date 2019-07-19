@@ -58,16 +58,16 @@ body {
 }
 
 body {
-    background: url(bg.jpg) center center no-repeat;
+    background: url(background.png) center center no-repeat;
 }
 h1[data-v-740df574] {
     width:100%;
-    height:200px;
+    height:180px;
 
-    line-height:200px;
+    line-height:180px;
     text-align:center;
     font-size:50px;
-    color:#555555;
+    color:#dddddd;
 } 
 
 #todoItem[data-v-0178261c] {
@@ -167,19 +167,63 @@ input[data-v-197f8a82] {
 }
 
 #author {
+  margin-top:50px;
   width: 100%;
   height: 50px;
 
   line-height:50px;
   text-align: center;
-  color: #cccccc;
+  color: #888888;
   font-size: 16px;
 }
 
 #app[data-v-7ba5bd90] {
     margin:0 auto;
-    
     width:40%;
+}
+#page[data-v-7ba5bd90]{
+    margin:0 0 20px 0;
+    text-align:center;
+}
+.router-link[data-v-7ba5bd90] {
+    color:#cccccc;
+    font-size:20px;
+}
+
+#control[data-v-4e0bc864] {
+  margin: 10px 0 180px 0;
+  text-align: center;
+}
+button[data-v-4e0bc864] {
+  margin: 0 30px;
+  border: #ffffff solid 1px;
+  border-radius: 5px;
+  padding: 8px 14px;
+
+  color: #ffffff;
+
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+.disable[data-v-4e0bc864] {
+  border-color: #777777;
+  color: #777777;
+  cursor: default;
+}
+
+#random[data-v-56fefc7c] {
+  text-align: center;
+}
+p[data-v-56fefc7c] {
+  margin: 100px 0;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+}
+.active[data-v-56fefc7c] {
+  color: #209975;
+  font-size: 60px;
 }
 
 /*# sourceMappingURL=index.css.map*/
