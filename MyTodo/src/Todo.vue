@@ -21,64 +21,32 @@
 import TodoItem from "./TodoItem.vue";
 import TodoTab from "./TodoTab.vue";
 
-let idCount = 0;
-
 export default {
   data: function() {
     return {
-      todoList: [],
       stateActive: "all"
     };
   },
   methods: {
     addTodo: function(e) {
-      this.todoList.unshift({
+      this.$store.commit('add',{
         itemText: e.target.value,
-        itemId: idCount++,
+        itemId: 0,
         completed: false
       });
-      e.target.value = "";
-      this.writeData();
+      e.target.value = '';
     },
     deleteItem: function(itemId) {
-      for (let i = 0, len = this.todoList.length; i < len; i++) {
-        if (this.todoList[i].itemId == itemId) {
-          this.todoList.splice(i, 1);
-          break;
-        }
-      }
-      this.writeData();
+      this.$store.commit('delete', itemId);
     },
     clearCompleted: function() {
-      this.todoList = this.todoList.filter(todo => !todo.completed);
-      this.writeData();
+      this.$store.commit('clear');
     },
     changeState: function(state) {
       this.stateActive = state;
     },
     changeCompleted: function(itemId) {
-      for (let i = 0, len = this.todoList.length; i < len; i++) {
-        if (this.todoList[i].itemId == itemId) {
-          this.todoList[i].completed = !this.todoList[i].completed;
-          break;
-        }
-      }
-      this.writeData();
-    },
-    writeData: function() {
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://localhost:8001", true);
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      let result = [];
-      for (let todo of this.todoList) {
-        result.push(todo.itemText + "," + (todo.completed ? '1' : '0'));
-      }
-      xhr.send(result.join("^"));
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status != 200) {
-          alert("数据更新失败");
-        }
-      };
+      this.$store.commit('change', itemId);
     }
   },
   components: {
@@ -87,36 +55,21 @@ export default {
   },
   computed: {
     getTodoLeftCount: function() {
-      return this.todoList.filter(todo => !todo.completed).length;
+      return this.$store.state.todoList.filter(todo => !todo.completed).length;
     },
     showList: function() {
       switch (this.stateActive) {
         case "all":
-          return this.todoList;
+          return this.$store.state.todoList;
         case "active":
-          return this.todoList.filter(todo => !todo.completed);
+          return this.$store.state.todoList.filter(todo => !todo.completed);
         case "completed":
-          return this.todoList.filter(todo => todo.completed);
+          return this.$store.state.todoList.filter(todo => todo.completed);
       }
     }
   },
   created: function() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8001", true);
-    xhr.send();
-    let todo = this.todoList;
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        let res = xhr.responseText.split("\n");
-        res.map(text =>
-          todo.push({
-            itemText: text.split(",")[0],
-            itemId: idCount++,
-            completed: +text.split(",")[1]
-          })
-        );
-      }
-    };
+    this.$store.commit('read');
   }
 };
 </script>

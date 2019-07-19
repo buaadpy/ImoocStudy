@@ -1,11 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin')
-
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
@@ -18,16 +15,11 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             use: {
                 loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
+                options: {presets: ['@babel/preset-env']}
             }
         }, {
             test: /\.css$/,
-            use: ExtractPlugin.extract({
-                fallback: "style-loader",
-                use: "css-loader"
-            }),
+            use: ExtractPlugin.extract({fallback: "style-loader",use: "css-loader"}),
         }, {
             test: /\.vue$/,
             use: 'vue-loader',
@@ -35,10 +27,7 @@ module.exports = {
             test: /\.(png|svg|jpg)$/,
             use: [{
                 loader: 'url-loader',
-                options: {
-                    limit: 1024,
-                    name: '[name].[ext]'
-                }
+                options: {limit: 1024,name: '[name].[ext]'}
             }],
         }]
     },
