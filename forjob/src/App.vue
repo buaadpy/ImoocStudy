@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ds-header></ds-header>
+    <good-list></good-list>
+    <ds-footer></ds-footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import "./asset/css/common.css";
+import "./asset/css/reset.css";
+
+import DsHeader from "./component/DsHeader.vue";
+import DsFooter from "./component/DSFooter.vue";
+import GoodList from "./component/GoodList.vue";
+import LoginBox from "./component/LoginBox.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    DsHeader,
+    DsFooter,
+    GoodList,
+    LoginBox
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
