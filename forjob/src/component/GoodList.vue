@@ -4,23 +4,58 @@
       <h3>数码影像</h3>
     </div>
     <div class="product-list clearfloat">
-      <good-list-item class="item" v-for="n in 8" :key="n.value"></good-list-item>
+      <good-list-item
+        class="item"
+        v-for="item in SMYXList"
+        :key="item.goodId"
+        :itemData="item"
+        @addGood="addGoodToCart"
+      ></good-list-item>
     </div>
     <div class="product-title">
       <h3>娱乐影音</h3>
     </div>
     <div class="product-list clearfloat">
-      <good-list-item class="item" v-for="n in 8" :key="n.value"></good-list-item>
+      <good-list-item
+        class="item"
+        v-for="item in YLYYList"
+        :key="item.goodId"
+        :itemData="item"
+        @addGood="addGoodToCart"
+      ></good-list-item>
     </div>
   </div>
 </template>
 
 <script>
 import GoodListItem from "./GoodListItem.vue";
+import testData1 from "./../../test/testData1.json";
+import testData2 from "./../../test/testData2.json";
 
 export default {
+  data: function() {
+    return {
+      SMYXList: [],
+      YLYYList: []
+    };
+  },
   components: {
     GoodListItem
+  },
+  created: function() {
+    this.SMYXList = [...testData1.goodList];
+    this.YLYYList = [...testData2.goodList];
+  },
+  methods: {
+    addGoodToCart: function(data) {
+      if (this.$store.getters.getUserName.length == 0) {
+        alert("请您先登录");
+        this.$router.push('/loginbox');
+      } else {
+        this.$store.dispatch("addGood", data);
+        alert("已加入购物车！");
+      }
+    }
   }
 };
 </script>

@@ -8,13 +8,27 @@
         <li>总计</li>
         <li>删除</li>
       </ul>
-      <shop-cart-item v-for="n in 5" :key="n.value"></shop-cart-item>
+      <p class="emptyInfo" v-if="goodList.length == 0">购物车为空哟！</p>
+      <shop-cart-item
+        ref="cartItem"
+        v-for="item in goodList"
+        :key="item.goodId"
+        :itemData="item"
+        @removeGood="removeGoodToCart"
+        @selectChange="selectToCheckout"
+      ></shop-cart-item>
     </div>
-    <div class="checkout">
-      <input type="checkbox" id="sel" v-model="selectAll" :class="selectAll? 'select-input':''" />
+    <div class="checkout" v-if="goodList.length != 0">
+      <input
+        type="checkbox"
+        id="sel"
+        v-model="selectAll"
+        :class="selectAll? 'select-input':''"
+        @click="selectAllGood"
+      />
       <label for="sel">选择全部</label>
-      <div class="checkoutButton">CHECKOUT</div>
-      <span class="totalMoney">10000</span>
+      <div :class="[{checkoutButton:true},{checkoutReady:selectList.length != 0}]">CHECKOUT</div>
+      <span class="totalMoney">￥{{totalMoney}}</span>
       <span class="totalMoneyInfo">结算金额：</span>
     </div>
   </div>
@@ -25,8 +39,54 @@ import ShopCartItem from "./ShopCartItem.vue";
 export default {
   data: function() {
     return {
+      selectList: [],
       selectAll: false
     };
+  },
+  computed: {
+    goodList: function() {
+      let temp = this.$store.getters.getList;
+      if (this.selectList.length == temp.length) {
+        this.selectAll = true;
+      } else {
+        this.selectAll = false;
+      }
+      return temp;
+    },
+    totalMoney: function() {
+      return this.selectList.reduce((total, n) => total + n.goodPrice, 0);
+    }
+  },
+  methods: {
+    removeGoodToCart: function(data) {
+      this.$store.dispatch("removeGood", data);
+    },
+    selectToCheckout: function(good, flag) {
+      if (flag) {
+        this.selectList.push(good);
+      } else {
+        this.selectList.splice(
+          this.selectList.findIndex(n => n.goodId == good.goodId),
+          1
+        );
+      }
+    },
+    selectAllGood: function() {
+      if (!this.selectAll) {
+        this.$refs.cartItem.forEach(n => (n.selected = true));
+      } else {
+        this.$refs.cartItem.forEach(n => (n.selected = false));
+      }
+    }
+  },
+  watch: {
+    selectList: function() {
+      if (this.selectList.length == this.$store.getters.getListLength) {
+        this.selectAll = true;
+      } else {
+        this.selectAll = false;
+      }
+    }
   },
   components: {
     ShopCartItem
@@ -58,6 +118,11 @@ export default {
 
 .itemList li:nth-of-type(1) {
   flex: 1 0 100px;
+}
+
+.emptyInfo {
+  margin: 10px 0px;
+  text-align: center;
 }
 
 .checkout {
@@ -98,12 +163,16 @@ input {
   height: 100%;
 
   font-weight: bold;
-  text-align:center;
-  line-height:50px;
+  text-align: center;
+  line-height: 50px;
 
+  transition: background-color 0.5s;
   background-color: #666666;
+  color: #ffffff;
+}
+.checkoutReady {
+  background-color: #cc4444;
   cursor: pointer;
-  color:#ffffff;
 }
 
 .totalMoney {

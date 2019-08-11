@@ -1,15 +1,15 @@
 <template>
-  <div class="item">
-    <input type="checkbox" v-model="select" :class="select? 'select-input':''" @click="selectItem" />
+  <div :class="selected? 'select-item item':'item'" @mouseenter="toggle" @mouseleave="toggle">
+    <input type="checkbox" v-model="selected" :class="selected? 'select-input':''"/>
     <div class="image">
-      <img src="./../asset/img/shopImg.png" alt="phone" />
+      <img :src="getImgSrc" alt="phone" />
     </div>
-    <div class="info">xxxxxx</div>
-    <div class="price">$100</div>
+    <div class="info">{{itemData.goodTitle}}</div>
+    <div class="price">￥{{itemData.goodPrice}}</div>
     <div class="quantity">1</div>
-    <div class="subtotal">$100</div>
+    <div class="subtotal">￥{{itemData.goodPrice * 1}}</div>
     <div class="edit">
-      <button @click="deleteItem">X</button>
+      <button v-if="seen" @click="deleteItem">X</button>
     </div>
   </div>
 </template>
@@ -18,12 +18,31 @@
 export default {
   data: function() {
     return {
-      select: false
+      selected:false,
+      seen: false
     };
   },
+  props: {
+    itemData: { type: Object, required: true }
+  },
   methods: {
-    selectItem: function() {},
-    deleteItem: function() {}
+    toggle: function() {
+      this.seen = !this.seen;
+    },
+    deleteItem: function() {
+      this.$emit('removeGood', this.itemData);
+      if (this.selected) this.$emit('selectChange', this.itemData, false);
+    },
+  },
+  computed:{
+    getImgSrc:function(){
+      return require(`./../asset/good/${this.itemData.goodImg}.jpg`);
+    }
+  },
+  watch:{
+    selected:function(){
+      this.$emit('selectChange', this.itemData, this.selected);
+    }
   }
 };
 </script>
@@ -38,6 +57,9 @@ export default {
   border: #f9f9f9 solid 2px;
 
   background-color: #ffffff;
+}
+.select-item {
+  background-color:#f3dea6;
 }
 
 input {
@@ -68,13 +90,14 @@ input {
 
 .info {
   flex: 1 0 0;
+  overflow: hidden;
+  align-self:center;
 
   padding-left: 20px;
 
   text-align: left;
-  font-weight: bold;
   font-size: 14px;
-  line-height: 100px;
+  line-height: 14px;
 }
 
 .price,

@@ -6,8 +6,9 @@
           <a href="#" class="collection" @click="todo">收藏慕课电商</a>
         </div>
         <div class="rightArea">
-          欢迎来到慕课电商!
-          <router-link to="/loginbox">[登录]</router-link>
+          {{userName.length == 0? "欢迎来到慕课电商!" : "欢迎您 "+userName}}
+          <router-link to="/loginbox" v-if="userName.length == 0">[登录]</router-link>
+          <a v-else class="exit" @click="exit">[退出]</a>
         </div>
       </div>
     </div>
@@ -22,7 +23,7 @@
         </div>
         <div class="shoppingCart" @click="toShopCart">
           <span class="shopText">购物车</span>
-          <span class="shopNum">0</span>
+          <span class="shopNum">{{total}}</span>
         </div>
       </div>
     </div>
@@ -56,11 +57,27 @@
 <script>
 export default {
   methods: {
-    toShopCart:function(){
-      this.$router.push('/shopcart');
+    toShopCart: function() {
+      if (location.pathname != '/shopcart')
+        this.$router.push('/shopcart');
     },
     todo: function() {
       alert("待完成功能，敬请期待");
+    },
+    exit:function(){
+      this.$store.dispatch('userLogin', '');
+      this.$store.dispatch('clearCart');
+      if (location.pathname != '/')
+        this.$router.push("/");
+      alert('退出成功！');
+    }
+  },
+  computed: {
+    total: function() {
+      return this.$store.getters.getListLength;
+    },
+    userName: function() {
+      return this.$store.getters.getUserName;
     }
   }
 };
@@ -68,7 +85,7 @@ export default {
 
 <style scoped>
 .header {
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 .topBar {
   height: 32px;
@@ -85,6 +102,10 @@ export default {
 
 .topBar a:hover {
   color: red;
+}
+
+.exit {
+  cursor: pointer;
 }
 
 .middleBar {

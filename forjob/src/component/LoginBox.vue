@@ -3,14 +3,14 @@
     <ul class="reg">
       <li class="l-tit">邮箱/用户名/手机号</li>
       <li>
-        <input type="text" class="login-input" />
+        <input type="text" class="login-input" v-model="userName" />
       </li>
       <li class="l-tit">密码</li>
       <li>
         <input type="password" class="login-input" />
       </li>
       <li>
-        <input type="button" class="login-btn" value="登录" />
+        <input type="button" class="login-btn" value="登录" @click="login" />
       </li>
     </ul>
     <div class="friend">
@@ -42,7 +42,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: function() {
+    return {
+      userName: ""
+    };
+  },
+  methods: {
+    login: function() {
+      this.$store.dispatch("userLogin", this.userName);
+      this.$router.push('/');
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -77,7 +89,7 @@ export default {};
 }
 
 .login-btn {
-  margin:20px 0;
+  margin: 20px 0;
   width: 309px;
   height: 36px;
   background: url("./../asset/img/button.jpg") center center;
@@ -90,13 +102,13 @@ export default {};
   line-height: 20px;
 }
 
-.friend div{
-  float:left;
-  width:140px;
+.friend div {
+  float: left;
+  width: 140px;
 }
 
 .friend ul {
-  float:left;
+  float: left;
 }
 
 .friend li {

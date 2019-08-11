@@ -2,29 +2,39 @@
   <div class="item">
     <div class="item-content">
       <div class="img-item">
-          <img src="./../asset/img/shopImg.png" alt="phone" />
+        <img :src="getImgSrc" alt="phone" />
       </div>
-      <p>
-        <a href="#">Canon 佳能 IXUS 132 数码相机 粉色 1600像素 2.7LCD</a>
+      <p class="item-title">
+        <a href="#">{{itemData.goodTitle}}</a>
       </p>
-      <p class="price">￥3212</p>
+      <p class="price">{{itemData.goodPrice}}</p>
       <p>
         评价：
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span></span>
+        <span class="star" v-for="n in itemData.goodStar" :key="n.value"></span>
       </p>
     </div>
-    <div class="item-add">
+    <div class="item-add" @click="addGoodToCart">
       <span>加入购物车</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    itemData: { type: Object, required: true }
+  },
+  computed: {
+    getImgSrc: function() {
+      return require(`./../asset/good/${this.itemData.goodImg}.jpg`);
+    }
+  },
+  methods:{
+    addGoodToCart:function(){
+      this.$emit('addGood', this.itemData);
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -42,6 +52,12 @@ export default {};
   padding: 0 15px;
 }
 
+.item-title {
+  overflow: hidden;
+
+  height:40px;
+}
+
 p {
   line-height: 20px;
 }
@@ -55,10 +71,15 @@ p a:hover {
 }
 
 .img-item {
-  margin-top:20px;
+  margin-top: 20px;
 
   height: 170px;
   text-align: center;
+}
+
+.img-item img{
+  width:170px;
+  height: 170px;
 }
 
 .price {
