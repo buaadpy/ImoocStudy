@@ -2,7 +2,7 @@
   <div class="item">
     <div class="item-content">
       <div class="img-item">
-        <img :src="getImgSrc" alt="phone" />
+        <img v-lazy="getImgSrc" alt="phone" />
       </div>
       <p class="item-title">
         <a href="#">{{itemData.goodTitle}}</a>

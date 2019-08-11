@@ -11,8 +11,8 @@
       <p class="emptyInfo" v-if="goodList.length == 0">购物车为空哟！</p>
       <shop-cart-item
         ref="cartItem"
-        v-for="item in goodList"
-        :key="item.goodId"
+        v-for="(item,index) in goodList"
+        :key="index"
         :itemData="item"
         @removeGood="removeGoodToCart"
         @selectChange="selectToCheckout"
