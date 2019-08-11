@@ -7,18 +7,14 @@
       </li>
       <li class="l-tit">密码</li>
       <li>
-        <input type="text" class="login-input" />
-      </li>
-      <li class="autoLogin">
-        <input type="checkbox" class="checked" />
-        <span>自动登陆</span>
+        <input type="password" class="login-input" />
       </li>
       <li>
-        <input type="button" class="login-btn" value="登陆" />
+        <input type="button" class="login-btn" value="登录" />
       </li>
     </ul>
     <div class="friend">
-      <p>使用合作方账号登陆网站</p>
+      <div>使用合作方账号登录网站:</div>
       <ul>
         <li>
           <a href="#">QQ</a>
@@ -52,7 +48,7 @@ export default {};
 <style scoped>
 .regBox {
   width: 308px;
-  height: 344px;
+  height: 270px;
   border: #999999 solid 1px;
   margin: 20px auto;
   padding: 15px 76px;
@@ -68,15 +64,10 @@ export default {};
   border: #999 solid 1px;
   height: 32px;
   line-height: 32px;
-  text-indent: 5px;
+  text-indent: 20px;
   width: 100%;
   background: url("./../asset/icon/user.jpg") 95% center no-repeat;
   margin-bottom: 10px;
-}
-
-.autoLogin {
-  padding-top: 27px;
-  padding-bottom: 28px;
 }
 
 .checked {
@@ -86,15 +77,26 @@ export default {};
 }
 
 .login-btn {
+  margin:20px 0;
   width: 309px;
   height: 36px;
-  background: url("./../asset/image/button.jpg") center center;
+  background: url("./../asset/img/button.jpg") center center;
+  cursor: pointer;
 }
 
 .friend {
   padding-top: 34px;
   color: #666666;
   line-height: 20px;
+}
+
+.friend div{
+  float:left;
+  width:140px;
+}
+
+.friend ul {
+  float:left;
 }
 
 .friend li {

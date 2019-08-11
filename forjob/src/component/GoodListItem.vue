@@ -2,7 +2,7 @@
   <div class="item">
     <div class="item-content">
       <div class="img-item">
-          <img src="./../asset/image/shopImg.png" alt="phone" />
+          <img src="./../asset/img/shopImg.png" alt="phone" />
       </div>
       <p>
         <a href="#">Canon 佳能 IXUS 132 数码相机 粉色 1600像素 2.7LCD</a>

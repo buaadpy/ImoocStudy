@@ -7,20 +7,20 @@
         </div>
         <div class="rightArea">
           欢迎来到慕课电商!
-          <a href="#">[登录]</a>
+          <router-link to="/loginbox">[登录]</router-link>
         </div>
       </div>
     </div>
     <div class="middleBar">
       <div class="comWidth">
         <div class="logo">
-          <img src="./../asset/image/logo.png" alt="慕课网" />
+          <img src="./../asset/img/logo.png" alt="慕课网" />
         </div>
         <div class="searchBox">
           <input type="text" class="searchText" />
           <input type="button" class="searchBtn" value="搜索" @click="todo" />
         </div>
-        <div class="shoppingCart" @click="todo">
+        <div class="shoppingCart" @click="toShopCart">
           <span class="shopText">购物车</span>
           <span class="shopNum">0</span>
         </div>
@@ -30,7 +30,7 @@
       <div class="comWidth">
         <ul class="nav">
           <li>
-            <a href="#" class="active">数码城</a>
+            <router-link to="/" class="active">数码城</router-link>
           </li>
           <li>
             <a href="#" @click="todo">大促</a>
@@ -56,6 +56,9 @@
 <script>
 export default {
   methods: {
+    toShopCart:function(){
+      this.$router.push('/shopcart');
+    },
     todo: function() {
       alert("待完成功能，敬请期待");
     }
@@ -64,6 +67,9 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  margin-bottom:20px;
+}
 .topBar {
   height: 32px;
   width: 100%;

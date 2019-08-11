@@ -13,16 +13,16 @@
     <p>Copyright &copy; 2006-2019 buaadpy版权所有&nbsp;&nbsp;&nbsp;京ICP备09037834号&nbsp;&nbsp;&nbsp;京ICP证B1034-8373号&nbsp;&nbsp;&nbsp;某市公安局XX分局备案编号：1234567</p>
     <p class="footer-logo">
       <a href="#">
-        <img src="./../asset/image/webLogo.png" alt="logo" />
+        <img src="./../asset/img/webLogo.png" alt="logo" />
       </a>
       <a href="#">
-        <img src="./../asset/image/webLogo.png" alt="logo" />
+        <img src="./../asset/img/webLogo.png" alt="logo" />
       </a>
       <a href="#">
-        <img src="./../asset/image/webLogo.png" alt="logo" />
+        <img src="./../asset/img/webLogo.png" alt="logo" />
       </a>
       <a href="#">
-        <img src="./../asset/image/webLogo.png" alt="logo" />
+        <img src="./../asset/img/webLogo.png" alt="logo" />
       </a>
     </p>
   </div>

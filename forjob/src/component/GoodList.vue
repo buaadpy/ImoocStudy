@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import GoodListItem from "./../component/GoodListItem.vue";
+import GoodListItem from "./GoodListItem.vue";
 
 export default {
   components: {
@@ -27,7 +27,6 @@ export default {
 
 <style scoped>
 .product-title {
-  margin-top:20px;
   height: 34px;
   line-height: 34px;
   border-bottom: #cccccc solid 2px;
