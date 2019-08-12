@@ -29,8 +29,9 @@
 
 <script>
 import GoodListItem from "./GoodListItem.vue";
-import testData1 from "./../../test/testData1.json";
-import testData2 from "./../../test/testData2.json";
+//import testData1 from "./../../test/testData1.json";
+//import testData2 from "./../../test/testData2.json";
+import axios from 'axios'
 
 export default {
   data: function() {
@@ -43,8 +44,24 @@ export default {
     GoodListItem
   },
   created: function() {
-    this.SMYXList = [...testData1.goodList];
-    this.YLYYList = [...testData2.goodList];
+    //this.SMYXList = [...testData1.goodList];
+    //this.YLYYList = [...testData2.goodList];
+    axios.get('http://localhost:3000/smyx').then((response)=>{
+      let res = response.data;
+      if (res.status == '0'){
+        this.SMYXList = res.result.goodList;
+      }else{
+        this.SMYXList = [];
+      }
+    })
+    axios.get('http://localhost:3000/ylyy').then((response)=>{
+      let res = response.data;
+      if (res.status == '0'){
+        this.YLYYList = res.result.goodList;
+      }else{
+        this.YLYYList = [];
+      }
+    })
   },
   methods: {
     addGoodToCart: function(data) {
